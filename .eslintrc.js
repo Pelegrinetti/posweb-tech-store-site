@@ -9,9 +9,12 @@ module.exports = {
     ecmaFeatures: {
       jsx: true,
     },
-    ecmaVersion: 'latest',
+    ecmaVersion: 6,
     sourceType: 'module',
   },
   plugins: ['react'],
-  rules: {},
+  rules: {
+    'react/jsx-filename-extension': 'off',
+    'react/jsx-props-no-spreading': 'off',
+  },
 };
