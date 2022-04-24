@@ -16,5 +16,6 @@ module.exports = {
   rules: {
     'react/jsx-filename-extension': 'off',
     'react/jsx-props-no-spreading': 'off',
+    indent: ['error', 2],
   },
 };
