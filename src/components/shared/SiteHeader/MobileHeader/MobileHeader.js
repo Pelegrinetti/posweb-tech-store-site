@@ -14,7 +14,7 @@ import {
   Text,
   useDisclosure,
 } from '@chakra-ui/react';
-import { HamburgerIcon, SearchIcon } from '@chakra-ui/icons';
+import { HamburgerIcon } from '@chakra-ui/icons';
 
 function MobileHeader() {
   const { isOpen, onOpen, onClose } = useDisclosure();
