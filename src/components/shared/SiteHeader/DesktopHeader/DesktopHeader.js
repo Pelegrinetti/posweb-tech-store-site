@@ -1,7 +1,6 @@
 import {
   Avatar,
   Box,
-  Button,
   Flex,
   Link,
   Menu,
@@ -34,14 +33,14 @@ function DesktopHeader() {
         </Flex>
         <Box>
           <Menu>
-            {({ isOpen }) => (
+            {() => (
               <>
-                <MenuButton isActive={isOpen} as={Button} variant="unstyled">
+                <MenuButton variant="unstyled" border="none">
                   <Avatar name={user.name} />
                 </MenuButton>
                 <MenuList>
-                  <MenuItem as={Link} href="/account">Minha conta</MenuItem>
-                  <MenuItem as={Link} href="/orders">Pedidos</MenuItem>
+                  <MenuItem>Minha conta</MenuItem>
+                  <MenuItem>Pedidos</MenuItem>
                   <MenuItem>Sair</MenuItem>
                 </MenuList>
               </>
