@@ -12,15 +12,23 @@ import {
   Flex,
   Link,
   Text,
+  Icon,
   useDisclosure,
 } from '@chakra-ui/react';
+import { BsCart, BsCartFill } from 'react-icons/bs';
 import { HamburgerIcon } from '@chakra-ui/icons';
+import { useState } from 'react';
 
 function MobileHeader() {
+  const [toggle, setToggle] = useState(false);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const user = {
     name: 'Foo Bar',
   };
+
+  const handleClick = () => {
+    setToggle((old) => !old);
+  }
 
   return (
     <>
@@ -35,7 +43,15 @@ function MobileHeader() {
           <HamburgerIcon />
         </Button>
         <Text fontWeight="bold">Tech Store</Text>
-        <Avatar name={user.name} />
+        <Button
+          variant="unstyled"
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          onClick={() => handleClick()}
+        >
+          <Icon as={toggle ? BsCart : BsCartFill} />
+        </Button>
       </Flex>
       <Drawer isOpen={isOpen} placement="left" onClose={onClose}>
         <DrawerOverlay />

@@ -8,7 +8,10 @@ import {
   MenuItem,
   MenuList,
   Text,
+  Icon,
+  Button,
 } from '@chakra-ui/react';
+import { BsCart } from 'react-icons/bs';
 
 function DesktopHeader() {
   const user = {
@@ -31,7 +34,15 @@ function DesktopHeader() {
           <Link href="/">Tech Day</Link>
           <Link href="/">PC Gamers</Link>
         </Flex>
-        <Box>
+        <Flex justifyContent="center" alignItems="center" gap={4}>
+          <Button
+            variant="unstyled"
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+          >
+            <Icon as={BsCart} fontSize={20} />
+          </Button>
           <Menu>
             {() => (
               <>
@@ -46,7 +57,7 @@ function DesktopHeader() {
               </>
             )}
           </Menu>
-        </Box>
+        </Flex>
       </Flex>
     </Flex>
   );
