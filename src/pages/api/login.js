@@ -1,6 +1,7 @@
 export default async function handler(req, res) {
   try {
-    await fetch(`${process.env.TECH_STORE_USER_API_BASE_URL}/users/login`, {
+    await fetch(`${process.env.TECH_STORE_USER_API_BASE_URL}/login`, {
+      method: 'POST',
       body: JSON.stringify(req.body),
     });
 
