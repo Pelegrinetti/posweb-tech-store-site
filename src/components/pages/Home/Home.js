@@ -26,34 +26,18 @@ function Home() {
         flexDirection="column"
       >
         <Section title="Os melhores produtos">
-          {[...Array(8)].map((item, i) => (
-            <ProductCard
-              key={i}
-              title={product.title}
-              image={product.image}
-              price={product.price}
-            />
-          ))}
-        </Section>
-        <Section title="Os melhores produtos">
-          {[...Array(8)].map((item, i) => (
-            <ProductCard
-              key={i}
-              title={product.title}
-              image={product.image}
-              price={product.price}
-            />
-          ))}
-        </Section>
-        <Section title="Os melhores produtos">
-          {[...Array(8)].map((item, i) => (
-            <ProductCard
-              key={i}
-              title={product.title}
-              image={product.image}
-              price={product.price}
-            />
-          ))}
+          {[...Array(8)].map((item, i) => {
+            const key = `section_${i}`;
+
+            return (
+              <ProductCard
+                key={key}
+                title={product.title}
+                image={product.image}
+                price={product.price}
+              />
+            );
+          })}
         </Section>
       </Flex>
     </>
