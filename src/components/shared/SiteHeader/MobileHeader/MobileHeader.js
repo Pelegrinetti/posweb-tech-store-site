@@ -14,21 +14,16 @@ import {
   Text,
   Icon,
   useDisclosure,
+  Box,
 } from '@chakra-ui/react';
-import { BsCart, BsCartFill } from 'react-icons/bs';
+import { BsCart } from 'react-icons/bs';
 import { HamburgerIcon } from '@chakra-ui/icons';
-import { useState } from 'react';
+import { signIn, useSession } from 'next-auth/react';
 
 function MobileHeader() {
-  const [toggle, setToggle] = useState(false);
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const user = {
-    name: 'Foo Bar',
-  };
-
-  const handleClick = () => {
-    setToggle((old) => !old);
-  }
+  const { data: session } = useSession();
+  const { user } = session || {};
 
   return (
     <>
@@ -48,9 +43,8 @@ function MobileHeader() {
           display="flex"
           justifyContent="center"
           alignItems="center"
-          onClick={() => handleClick()}
         >
-          <Icon as={toggle ? BsCart : BsCartFill} />
+          <Icon as={BsCart} />
         </Button>
       </Flex>
       <Drawer isOpen={isOpen} placement="left" onClose={onClose}>
@@ -58,12 +52,23 @@ function MobileHeader() {
         <DrawerContent>
           <DrawerCloseButton />
           <DrawerHeader>
-            <Flex gap="3" alignItems="baseline">
-              <Avatar name={user.name} />
-              <Text fontSize="lg" isTruncated maxWidth="70%">
-                {user.name}
-              </Text>
-            </Flex>
+            <Box>
+              {session ? (
+                <Flex gap="3" alignItems="center">
+                  <Avatar name={user.name} src={user.image} />
+                  <Text fontSize="lg" isTruncated maxWidth="70%">
+                    {user.name}
+                  </Text>
+                </Flex>
+              ) : (
+                <Flex gap="3" alignItems="center">
+                  <Avatar />
+                  <Button variant="unstyled" onClick={() => signIn('google')}>
+                    <Text fontSize="lg">Entrar</Text>
+                  </Button>
+                </Flex>
+              )}
+            </Box>
           </DrawerHeader>
 
           <DrawerBody>
