@@ -3,18 +3,7 @@ import SiteHeader from '../../shared/SiteHeader';
 import ProductCard from '../../shared/ProductCard';
 import Section from '../../shared/Section';
 
-function Home() {
-  const product = {
-    title: 'PC Top',
-    image: {
-      url: 'https://via.placeholder.com/300x300/09f.png/fff',
-      description: 'Lets bora',
-    },
-    price: 3000,
-    rating: 5,
-    url: 'http://localhost',
-  };
-
+function Home({ products }) {
   return (
     <>
       <SiteHeader />
@@ -25,20 +14,18 @@ function Home() {
         margin="auto"
         flexDirection="column"
       >
-        <Section title="Os melhores produtos">
-          {[...Array(8)].map((item, i) => {
-            const key = `section_${i}`;
-
-            return (
+        {products.length > 0 && (
+          <Section title="Os melhores produtos">
+            {products.map((product) => (
               <ProductCard
-                key={key}
-                title={product.title}
-                image={product.image}
+                key={product.sku}
+                title={product.name}
+                gallery={product.gallery}
                 price={product.price}
               />
-            );
-          })}
-        </Section>
+            ))}
+          </Section>
+        )}
       </Flex>
     </>
   );

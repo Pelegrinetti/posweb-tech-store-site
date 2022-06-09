@@ -2,7 +2,8 @@ import { StarIcon } from '@chakra-ui/icons';
 import { Box, Image, Link } from '@chakra-ui/react';
 
 function ProductCard(props) {
-  const { title, image, price, rating, url } = props;
+  const { title, gallery, price, rating, url } = props;
+  const [image] = gallery;
 
   return (
     <Box
