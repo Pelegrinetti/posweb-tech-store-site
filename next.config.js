@@ -1,5 +1,10 @@
+const withPWA = require('next-pwa');
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  pwa: {
+    dest: 'public',
+  },
   reactStrictMode: true,
   publicRuntimeConfig: {
     googleClientId: process.env.GOOGLE_CLIENT_ID,
@@ -7,4 +12,4 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
+module.exports = withPWA(nextConfig);
