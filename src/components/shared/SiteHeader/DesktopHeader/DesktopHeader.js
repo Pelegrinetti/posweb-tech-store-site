@@ -1,6 +1,5 @@
 import {
   Avatar,
-  Box,
   Flex,
   Link,
   Menu,
@@ -20,10 +19,15 @@ import {
   ModalFooter,
 } from '@chakra-ui/react';
 import { useSession, signOut, signIn } from 'next-auth/react';
+import { useContext } from 'react';
 import { BsCart, BsGoogle } from 'react-icons/bs';
+import Cart from '../../Cart';
+import { CartContext } from '../../CartProvider';
+import Logo from '../../Logo';
 
 function DesktopHeader() {
   const { isOpen, onClose, onOpen } = useDisclosure();
+  const { onToggle: cartOnToggle } = useContext(CartContext);
   const { data: session } = useSession();
   const { user } = session || {};
 
@@ -34,9 +38,7 @@ function DesktopHeader() {
         justifyContent="space-between"
         alignItems="center"
       >
-        <Box>
-          <Text fontWeight="bold">Tech Store</Text>
-        </Box>
+        <Logo size="15%" />
         <Flex gap="20px">
           <Link href="/">Melhores produtos</Link>
           <Link href="/">Promoções</Link>
@@ -49,6 +51,7 @@ function DesktopHeader() {
             display="flex"
             justifyContent="center"
             alignItems="center"
+            onClick={cartOnToggle}
           >
             <Icon as={BsCart} fontSize={20} />
           </Button>
@@ -107,6 +110,7 @@ function DesktopHeader() {
           )}
         </Flex>
       </Flex>
+      <Cart />
     </Flex>
   );
 }
