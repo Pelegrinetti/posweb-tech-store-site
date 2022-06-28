@@ -1,14 +1,14 @@
 import { StarIcon } from '@chakra-ui/icons';
-import Link from 'next/link';
-import { Box, Image } from '@chakra-ui/react';
+import NextLink from 'next/link';
+import { Box, Image, Link } from '@chakra-ui/react';
 
 function ProductCard(props) {
   const { title, gallery, price, rating, url } = props;
   const [image] = gallery;
 
   return (
-    <Link href={url}>
-      <Box borderWidth="1px" borderRadius="lg" overflow="hidden" width="100%">
+    <NextLink href={url} passHref>
+      <Box as={Link} borderWidth="1px" borderRadius="lg" overflow="hidden" width="100%">
         <Image
           src={image.url}
           alt={image.description}
@@ -53,7 +53,7 @@ function ProductCard(props) {
           </Box>
         </Box>
       </Box>
-    </Link>
+    </NextLink>
   );
 }
 

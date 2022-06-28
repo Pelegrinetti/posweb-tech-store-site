@@ -32,13 +32,13 @@ function DesktopHeader() {
   const { user } = session || {};
 
   return (
-    <Flex justifyContent="center" borderWidth="thin" padding="7">
+    <Flex as="header" justifyContent="center" borderWidth="thin" padding="7">
       <Flex
         width="container.xl"
         justifyContent="space-between"
         alignItems="center"
       >
-        <Logo size="15%" />
+        <Logo />
         <Flex gap="20px">
           <Link href="/">Melhores produtos</Link>
           <Link href="/">Promoções</Link>

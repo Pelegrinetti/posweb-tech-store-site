@@ -8,6 +8,7 @@ function Home({ products }) {
     <>
       <SiteHeader />
       <Flex
+        as="main"
         maxWidth={{
           lg: 'container.xl',
         }}
