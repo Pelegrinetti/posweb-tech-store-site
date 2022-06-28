@@ -22,6 +22,7 @@ function Home({ products }) {
                 title={product.name}
                 gallery={product.gallery}
                 price={product.price}
+                url={`/product/${product.sku}`}
               />
             ))}
           </Section>
