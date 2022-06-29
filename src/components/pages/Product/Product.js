@@ -11,6 +11,7 @@ import {
   Text,
 } from '@chakra-ui/react';
 import { BsCart, BsPlus } from 'react-icons/bs';
+import SiteFooter from '../../shared/SiteFooter';
 import SiteHeader from '../../shared/SiteHeader';
 
 function Product(props) {
@@ -63,6 +64,7 @@ function Product(props) {
           </Stack>
         </Stack>
       </SimpleGrid>
+      <SiteFooter />
     </>
   );
 }
