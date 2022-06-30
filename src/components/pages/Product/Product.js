@@ -9,6 +9,7 @@ import {
   SimpleGrid,
   Stack,
   Text,
+  useToast,
 } from '@chakra-ui/react';
 import { BsCart, BsPlus } from 'react-icons/bs';
 import { useCart } from 'react-use-cart';
@@ -20,6 +21,7 @@ function Product(props) {
   const { name, description, gallery, price } = product;
   const [image] = gallery;
 
+  const toast = useToast();
   const { addItem } = useCart();
 
   return (
@@ -60,7 +62,19 @@ function Product(props) {
           </Box>
           <Divider />
           <Stack direction="row">
-            <Button onClick={() => addItem(product)}>
+            <Button
+              onClick={() => {
+                toast({
+                  title: 'Item adicionado ao carrinho!',
+                  description: "Item adicionado, você pode abrir o carrinho e concluir a compra.",
+                  status: 'success',
+                  duration: 5000,
+                  position: 'top-right',
+                  isClosable: true,
+                });
+                addItem(product);
+              }}
+            >
               <Icon as={BsPlus} /> <Icon as={BsCart} />
             </Button>
             <Button colorScheme="blue">Comprar agora</Button>
