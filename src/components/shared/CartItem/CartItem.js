@@ -15,10 +15,13 @@ import {
   NumberInputStepper,
   Text,
 } from '@chakra-ui/react';
+import { useCart } from 'react-use-cart';
 
 function CartItem(props) {
   const { item } = props;
   const [image] = item.gallery;
+
+  const { removeItem, updateItemQuantity } = useCart();
 
   return (
     <ListItem
@@ -58,7 +61,15 @@ function CartItem(props) {
       <Box padding={2}>
         <FormControl alignItems="baseline">
           <FormLabel htmlFor="quantity">Quantidade:</FormLabel>
-          <NumberInput id="quantity" defaultValue={item.quantity} min={1} marginBottom={2}>
+          <NumberInput
+            id="quantity"
+            defaultValue={item.quantity}
+            min={1}
+            marginBottom={2}
+            onChange={(value) =>
+              updateItemQuantity(item.id, parseInt(value, 10))
+            }
+          >
             <NumberInputField />
             <NumberInputStepper>
               <NumberIncrementStepper />
@@ -66,7 +77,9 @@ function CartItem(props) {
             </NumberInputStepper>
           </NumberInput>
           <Box>
-            <Button colorScheme="red">Remover</Button>
+            <Button onClick={() => removeItem(item.id)} colorScheme="red">
+              Remover
+            </Button>
           </Box>
         </FormControl>
       </Box>

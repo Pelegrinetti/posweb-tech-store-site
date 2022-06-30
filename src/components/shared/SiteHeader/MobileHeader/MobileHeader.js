@@ -19,14 +19,16 @@ import {
 import { BsCart } from 'react-icons/bs';
 import { HamburgerIcon } from '@chakra-ui/icons';
 import { signIn, useSession } from 'next-auth/react';
-import { useContext } from 'react';
 import Cart from '../../Cart';
-import { CartContext } from '../../CartProvider';
 import Logo from '../../Logo';
 
 function MobileHeader() {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const { onToggle: cartOnToggle } = useContext(CartContext);
+  const {
+    isOpen: cartIsOpen,
+    onClose: cartOnClose,
+    onToggle: cartOnToggle,
+  } = useDisclosure();
   const { data: session } = useSession();
   const { user } = session || {};
 
@@ -53,7 +55,7 @@ function MobileHeader() {
           <Icon as={BsCart} />
         </Button>
       </Flex>
-      <Cart />
+      <Cart isOpen={cartIsOpen} onClose={cartOnClose} />
       <Drawer isOpen={isOpen} placement="left" onClose={onClose}>
         <DrawerOverlay />
         <DrawerContent>
