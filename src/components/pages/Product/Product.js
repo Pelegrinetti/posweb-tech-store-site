@@ -11,6 +11,7 @@ import {
   Text,
 } from '@chakra-ui/react';
 import { BsCart, BsPlus } from 'react-icons/bs';
+import { useCart } from 'react-use-cart';
 import SiteFooter from '../../shared/SiteFooter';
 import SiteHeader from '../../shared/SiteHeader';
 
@@ -18,6 +19,8 @@ function Product(props) {
   const { product } = props;
   const { name, description, gallery, price } = product;
   const [image] = gallery;
+
+  const { addItem } = useCart();
 
   return (
     <>
@@ -57,7 +60,7 @@ function Product(props) {
           </Box>
           <Divider />
           <Stack direction="row">
-            <Button>
+            <Button onClick={() => addItem(product)}>
               <Icon as={BsPlus} /> <Icon as={BsCart} />
             </Button>
             <Button colorScheme="blue">Comprar agora</Button>
