@@ -20,7 +20,6 @@ import { useCart } from 'react-use-cart';
 function CartItem(props) {
   const { item } = props;
   const [image] = item.gallery;
-
   const { removeItem, updateItemQuantity } = useCart();
 
   return (
