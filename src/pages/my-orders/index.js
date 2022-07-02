@@ -2,8 +2,8 @@ import MyOrdersPage from '../../components/pages/MyOrders';
 
 export async function getServerSideProps() {
     const ordersEndpointResponseNeeded = {
-        data: [{
-            id: 1,
+        data: new Array(3).fill().map(() => ({
+            id: String(Math.floor(Math.random() * 1000000) + 1).padStart(8, '0'),
             user_id: 'ahjsduhjsduahsduausdua',
             total: 13000.0,
             cep: 18060005,
@@ -28,9 +28,9 @@ export async function getServerSideProps() {
                         description: '',
                     }, ],
                 },
-                quantity: 1,
+                quantity: Math.floor(Math.random() * 10) + 1,
             }, ],
-        }, ],
+        })),
     };
 
     return {
