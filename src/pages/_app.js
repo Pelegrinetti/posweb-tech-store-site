@@ -1,16 +1,22 @@
 import { ChakraProvider } from '@chakra-ui/react';
 import { SessionProvider } from 'next-auth/react';
-import CartProvider from '../components/shared/CartProvider';
+import Head from 'next/head';
+import { CartProvider } from 'react-use-cart';
 
 function CustomApp({ Component, pageProps: { session, ...pageProps } }) {
   return (
-    <SessionProvider session={session}>
-      <ChakraProvider>
+    <>
+      <Head>
+        <title>Tech Store</title>
+      </Head>
+      <SessionProvider session={session}>
         <CartProvider>
-          <Component {...pageProps} />
+          <ChakraProvider>
+            <Component {...pageProps} />
+          </ChakraProvider>
         </CartProvider>
-      </ChakraProvider>
-    </SessionProvider>
+      </SessionProvider>
+    </>
   );
 }
 

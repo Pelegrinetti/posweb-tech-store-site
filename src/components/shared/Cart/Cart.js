@@ -7,14 +7,17 @@ import {
   DrawerFooter,
   DrawerHeader,
   DrawerOverlay,
+  Link,
   List,
 } from '@chakra-ui/react';
-import { useContext, useRef } from 'react';
+import NextLink from 'next/link';
+import { useRef } from 'react';
+import { useCart } from 'react-use-cart';
 import CartItem from '../CartItem';
-import { CartContext } from '../CartProvider';
 
-function Cart() {
-  const { isOpen, onClose, items } = useContext(CartContext);
+function Cart(props) {
+  const { isOpen, onClose } = props;
+  const { items } = useCart();
   const btnRef = useRef();
 
   return (
@@ -29,7 +32,6 @@ function Cart() {
       <DrawerContent>
         <DrawerCloseButton />
         <DrawerHeader>Meu carrinho</DrawerHeader>
-
         <DrawerBody>
           {items.length > 0 ? (
             <List>
@@ -41,12 +43,14 @@ function Cart() {
             <p>Seu carrinho está vazio.</p>
           )}
         </DrawerBody>
-
         <DrawerFooter>
           <Button variant="outline" mr={3} onClick={onClose}>
             Fechar
           </Button>
-          <Button colorScheme="blue">Finalizar compra</Button>
+
+          <NextLink href="/checkout" passHref>
+            <Button as={Link} colorScheme="blue">Finalizar compra</Button>
+          </NextLink>
         </DrawerFooter>
       </DrawerContent>
     </Drawer>

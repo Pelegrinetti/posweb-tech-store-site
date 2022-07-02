@@ -1,4 +1,5 @@
 import { Flex } from '@chakra-ui/react';
+import SiteFooter from '../../shared/SiteFooter';
 import SiteHeader from '../../shared/SiteHeader';
 import ProductCard from '../../shared/ProductCard';
 import Section from '../../shared/Section';
@@ -29,6 +30,7 @@ function Home({ products }) {
           </Section>
         )}
       </Flex>
+      <SiteFooter />
     </>
   );
 }

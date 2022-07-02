@@ -19,15 +19,17 @@ import {
   ModalFooter,
 } from '@chakra-ui/react';
 import { useSession, signOut, signIn } from 'next-auth/react';
-import { useContext } from 'react';
 import { BsCart, BsGoogle } from 'react-icons/bs';
 import Cart from '../../Cart';
-import { CartContext } from '../../CartProvider';
 import Logo from '../../Logo';
 
 function DesktopHeader() {
   const { isOpen, onClose, onOpen } = useDisclosure();
-  const { onToggle: cartOnToggle } = useContext(CartContext);
+  const {
+    isOpen: cartIsOpen,
+    onToggle: cartOnToggle,
+    onClose: cartOnClose,
+  } = useDisclosure();
   const { data: session } = useSession();
   const { user } = session || {};
 
@@ -110,7 +112,7 @@ function DesktopHeader() {
           )}
         </Flex>
       </Flex>
-      <Cart />
+      <Cart isOpen={cartIsOpen} onClose={cartOnClose} />
     </Flex>
   );
 }
