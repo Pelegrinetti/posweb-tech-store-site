@@ -7,8 +7,10 @@ import {
   DrawerFooter,
   DrawerHeader,
   DrawerOverlay,
+  Link,
   List,
 } from '@chakra-ui/react';
+import NextLink from 'next/link';
 import { useRef } from 'react';
 import { useCart } from 'react-use-cart';
 import CartItem from '../CartItem';
@@ -45,7 +47,10 @@ function Cart(props) {
           <Button variant="outline" mr={3} onClick={onClose}>
             Fechar
           </Button>
-          <Button colorScheme="blue">Finalizar compra</Button>
+
+          <NextLink href="/checkout" passHref>
+            <Button as={Link} colorScheme="blue">Finalizar compra</Button>
+          </NextLink>
         </DrawerFooter>
       </DrawerContent>
     </Drawer>
