@@ -20,7 +20,7 @@ import {
 import SiteFooter from '../../shared/SiteFooter';
 import SiteHeader from '../../shared/SiteHeader';
 
-function Product(props) {
+function MyOrders(props) {
   const { orders } = props;
 
   return (
@@ -107,4 +107,4 @@ function Product(props) {
   );
 }
 
-export default Product;
+export default MyOrders;

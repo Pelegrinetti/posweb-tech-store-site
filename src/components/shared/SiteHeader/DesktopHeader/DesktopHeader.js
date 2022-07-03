@@ -69,12 +69,15 @@ function DesktopHeader() {
                     <MenuItem>
                       <NextLink href="/account" passHref>
                         {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                        <Link>
-                          Minha conta
-                        </Link>
+                        <Link>Minha conta</Link>
                       </NextLink>
                     </MenuItem>
-                    <MenuItem>Pedidos</MenuItem>
+                    <MenuItem>
+                      <NextLink href="/my-orders" passHref>
+                        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+                        <Link>Meus pedidos</Link>
+                      </NextLink>
+                    </MenuItem>
                     <MenuItem onClick={() => signOut()}>Sair</MenuItem>
                   </MenuList>
                 </>

@@ -87,7 +87,10 @@ function MobileHeader() {
                 {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                 <Link>Minha conta</Link>
               </NextLink>
-              <Link href="/orders">Pedidos</Link>
+              <NextLink href="/my-orders" passHref>
+                {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+                <Link>Meus pedidos</Link>
+              </NextLink>
             </Flex>
             <Divider />
             <Flex flexDirection="column" gap="20px" marginTop="20px">
