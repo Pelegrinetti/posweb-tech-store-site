@@ -1,7 +1,7 @@
 import NextAuth from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
 
-export default NextAuth({
+export const nextAuthOptions = {
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID,
@@ -20,7 +20,7 @@ export default NextAuth({
             email: token.email,
             picture: token.picture,
           }),
-        },
+        }
       );
 
       const data = await response.json();
@@ -45,4 +45,6 @@ export default NextAuth({
       };
     },
   },
-});
+};
+
+export default NextAuth(nextAuthOptions);
