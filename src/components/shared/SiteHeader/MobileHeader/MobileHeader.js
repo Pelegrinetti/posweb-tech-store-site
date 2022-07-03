@@ -16,6 +16,7 @@ import {
   useDisclosure,
   Box,
 } from '@chakra-ui/react';
+import NextLink from 'next/link';
 import { BsCart } from 'react-icons/bs';
 import { HamburgerIcon } from '@chakra-ui/icons';
 import { signIn, useSession } from 'next-auth/react';
@@ -82,7 +83,10 @@ function MobileHeader() {
 
           <DrawerBody>
             <Flex flexDirection="column" gap="20px" paddingBottom="20px">
-              <Link href="/account">Minha conta</Link>
+              <NextLink href="/account" passHref>
+                {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+                <Link>Minha conta</Link>
+              </NextLink>
               <Link href="/orders">Pedidos</Link>
             </Flex>
             <Divider />

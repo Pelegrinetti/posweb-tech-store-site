@@ -18,6 +18,7 @@ import {
   useDisclosure,
   ModalFooter,
 } from '@chakra-ui/react';
+import NextLink from 'next/link';
 import { useSession, signOut, signIn } from 'next-auth/react';
 import { BsCart, BsGoogle } from 'react-icons/bs';
 import Cart from '../../Cart';
@@ -65,7 +66,14 @@ function DesktopHeader() {
                     <Avatar name={user.name} src={user.image} />
                   </MenuButton>
                   <MenuList>
-                    <MenuItem>Minha conta</MenuItem>
+                    <MenuItem>
+                      <NextLink href="/account" passHref>
+                        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+                        <Link>
+                          Minha conta
+                        </Link>
+                      </NextLink>
+                    </MenuItem>
                     <MenuItem>Pedidos</MenuItem>
                     <MenuItem onClick={() => signOut()}>Sair</MenuItem>
                   </MenuList>
