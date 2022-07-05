@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  store-site:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development
+    container_name: store-site
+    env_file:
+      - .env
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/usr/app

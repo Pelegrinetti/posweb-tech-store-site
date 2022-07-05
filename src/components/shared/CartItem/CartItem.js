@@ -29,6 +29,7 @@ function CartItem(props) {
       borderRadius="5px"
       listStyleType="none"
       gap={2}
+      marginBottom={2}
     >
       <Flex>
         <Image
