@@ -33,6 +33,7 @@ function MyOrders(props) {
         margin="auto"
         marginTop={10}
         marginBottom={20}
+        minHeight="55vh"
       >
         <Heading>Meus pedidos</Heading>
         <Accordion allowToggle marginTop={10}>

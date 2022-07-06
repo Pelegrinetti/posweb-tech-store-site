@@ -63,6 +63,7 @@ function CreateProductForm(props) {
         position: 'bottom-right',
         status: 'success',
       });
+      reset();
     } catch (error) {
       toast({
         title: 'Falha ao criar o produto!',
@@ -70,7 +71,6 @@ function CreateProductForm(props) {
         position: 'bottom-right',
         status: 'error',
       });
-      reset();
     }
 
     onClose();
