@@ -93,12 +93,6 @@ function MobileHeader() {
               </NextLink>
             </Flex>
             <Divider />
-            <Flex flexDirection="column" gap="20px" marginTop="20px">
-              <Link href="/">Melhores produtos</Link>
-              <Link href="/">Promoções</Link>
-              <Link href="/">Tech Day</Link>
-              <Link href="/">PC Gamers</Link>
-            </Flex>
           </DrawerBody>
 
           <DrawerFooter>

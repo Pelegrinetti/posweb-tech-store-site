@@ -42,12 +42,6 @@ function DesktopHeader() {
         alignItems="center"
       >
         <Logo />
-        <Flex gap="20px">
-          <Link href="/">Melhores produtos</Link>
-          <Link href="/">Promoções</Link>
-          <Link href="/">Tech Day</Link>
-          <Link href="/">PC Gamers</Link>
-        </Flex>
         <Flex justifyContent="center" alignItems="center" gap={4}>
           <Button
             variant="unstyled"
